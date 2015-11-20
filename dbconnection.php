@@ -1,4 +1,10 @@
 <?php
 require_once("dbinfo.php");
-$dbh = mysqli_connect($mysql_host,$mysql_user,$mysql_password,$mysql_database);
+try{
+	
+	$dbh = new PDO($dsn, $mysql_user, $mysql_password);
+}
+catch (PDOException $e){
+	echo "Connection error: " . $e->getMessage();
+}
 ?>
