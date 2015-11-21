@@ -9,8 +9,8 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 	$result->bindParam(":email", $email);
 	$result->bindParam(":password", $password);
 	$result->execute();
-	$count = mysqli_num_rows($result);
-	$row = mysqli_fetch_assoc($result);
+	$count = $result->rowCount();
+	$row = $result->fetch(PDO::FETCH_ASSOC);
 	
 	if($count==1){
 		echo true;
